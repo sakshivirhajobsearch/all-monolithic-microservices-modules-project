@@ -1,0 +1,54 @@
+#server:
+#  port: 8761
+#
+#spring:
+#  application:
+#    name: service-discovery
+#
+#eureka:
+#  instance:
+#    hostname: localhost
+#  client:
+#    register-with-eureka: false
+#    fetch-registry: false
+
+server:
+  port: 8761  # Ensure this port is free
+
+spring:
+  application:
+    name: discovery-server
+
+eureka:
+  instance:
+    hostname: localhost  # Change to actual hostname in production
+    lease-renewal-interval-in-seconds: 30  # Client heartbeats every 30s
+    lease-expiration-duration-in-seconds: 90  # Instance expires after 90s without heartbeat
+
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+
+  server:
+    enable-self-preservation: false  # Disable to allow eviction of dead instances
+    eviction-interval-timer-in-ms: 30000  # Eviction check runs every 30s
+    renewal-percent-threshold: 0.5  # Allow eviction if only 50% renew (adjust if needed)
+    wait-time-in-ms-when-sync-empty: 0  # No delay if registry is empty
+
+logging:
+  level:
+    root: INFO
+    com.netflix.eureka: DEBUG
+    org.springframework.cloud.netflix.eureka.server: DEBUG
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
+  health:
+    defaults:
+      enabled: true  # Fix incorrect syntax
