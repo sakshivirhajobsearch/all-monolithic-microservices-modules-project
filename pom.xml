@@ -1,0 +1,23 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.example</groupId>
+	<artifactId>all-monolithic-microservices-modules-project</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	<modules>
+		<module>service-discovery</module> <!--8761-->
+		<module>configuration-management</module> <!--8888-->
+		<module>api-gateway</module> <!--9000-->
+		<module>security-module</module> <!--8081-->
+		<module>service-modules</module> <!--8082-->
+		<module>service-a</module> <!--8083-->
+		<module>service-b</module> <!--8084-->
+		<module>database-modules</module> <!--3306-->
+		<module>event-driven-communication</module> <!--9092-->
+		<module>monitoring</module> <!--9200-->
+		<module>logging</module> <!--9300-->
+		<module>resilience</module> <!--8989-->
+	</modules>
+</project>

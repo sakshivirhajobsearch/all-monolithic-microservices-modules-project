@@ -1,0 +1,15 @@
+server:
+  port: 8989
+
+spring:
+  application:
+    name: resilience4j
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,metrics
+  endpoint:
+    health:
+      show-details: always

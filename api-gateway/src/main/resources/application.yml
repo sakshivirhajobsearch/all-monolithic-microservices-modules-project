@@ -1,0 +1,30 @@
+server:
+  port: 9000
+
+spring:
+  application:
+    name: api-gateway
+
+  cloud:
+    gateway:
+      routes:
+        - id: user-service
+          uri: lb://USER-SERVICE
+          predicates:
+            - Path=/users/**
+
+  config:
+    import: optional:configserver:http://localhost:8888  # Set Config Server as optional
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true   # Helps with service discovery
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
